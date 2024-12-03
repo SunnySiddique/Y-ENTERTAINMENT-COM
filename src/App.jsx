@@ -11,7 +11,7 @@ import MediaPage from "./pages/media/MediaPage";
 const App = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto">
+      <div>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
