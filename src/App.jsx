@@ -11,15 +11,16 @@ import MediaPage from "./pages/media/MediaPage";
 const App = () => {
   return (
     <>
-      <div className="container mx-auto"></div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/media" element={<MediaPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <div className="max-w-7xl mx-auto">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/media" element={<MediaPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   );

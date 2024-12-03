@@ -1,10 +1,10 @@
-import ContactForm from "../../components/contact/ContactForm";
+import ContactSection from "../../components/contact/ContactSection";
 import FAQSection from "../../components/contact/FAQSection";
 
 const ContactPage = () => {
   return (
-    <div className="py-10 md:py-16">
-      <ContactForm />
+    <div className="max-w-7xl mx-auto ">
+      <ContactSection />
       <FAQSection />
     </div>
   );

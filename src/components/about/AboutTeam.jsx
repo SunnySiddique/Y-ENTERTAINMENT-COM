@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Linkedin, Twitter } from "lucide-react";
 
@@ -66,7 +64,7 @@ const teamMembers = [
 const AboutTeam = () => {
   return (
     <section className="py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto">
         <motion.div className="text-center mb-12">
           <motion.h2
             initial={{ opacity: 0, y: -100 }}

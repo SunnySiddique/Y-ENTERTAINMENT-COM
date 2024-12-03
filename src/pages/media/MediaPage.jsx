@@ -1,27 +1,17 @@
-import GetStartedSection from "../../components/home/GetStartedSection";
-import LoadMoreButton from "../../components/LoadMoreButton";
-import MediaCards from "../../components/media/MediaCards";
-import MediaHeader from "../../components/media/MediaHeader";
+import MediaInstagramGallery from "../../components/media/MediaInstagramGallery";
+import MediaVideoGallery from "../../components/media/MediaVideoGallery";
 
 const MediaPage = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Header */}
-        <div>
-          <MediaHeader />
+      <div className="max-w-7xl mx-auto">
+        {/* MediaInstagramGallery */}
+        <div className="mt-10">
+          <MediaInstagramGallery />
         </div>
-
-        {/* Media Cards */}
-        <div className="mt-14">
-          <MediaCards />
+        <div className="mt-10">
+          <MediaVideoGallery />
         </div>
-
-        {/* Button */}
-        <LoadMoreButton title={"Load More"} center="center" />
-      </div>
-      <div>
-        <GetStartedSection />
       </div>
     </>
   );

@@ -1,76 +1,39 @@
-"use client";
-
 import { motion } from "framer-motion";
+import aboutImage from "/aboutImage.jpg";
 
 const AboutSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
-    <section className="max-w-6xl mx-auto px-4 ">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        className="text-center mb-12"
-      >
-        <motion.h2
-          variants={itemVariants}
-          className="text-4xl font-bold mb-4 uppercase"
+    <section
+      className="relative h-[70vh] overflow-hidden bg-black text-white text-center"
+      style={{
+        backgroundImage: `url(${aboutImage})`,
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+
+      {/* Text Content */}
+      <div className="relative z-20 flex flex-col justify-center items-center h-full px-4">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl md:text-7xl font-bold mb-3 uppercase"
         >
-          About us
-        </motion.h2>
+          About Us
+        </motion.h1>
         <motion.p
-          variants={itemVariants}
-          className="text-gray-500 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-xl md:text-2xl max-w-2xl"
         >
-          Occaecat est ipsum reprehenderit reprehenderit veniam anim laborum est
-          esse duis occaecat reprehenderit pariatur.
+          Shaping the future through innovation and creativity
         </motion.p>
-      </motion.div>
-      <motion.div
-        variants={imageVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        className="rounded-lg overflow-hidden max-w-2xl mx-auto"
-      >
-        <img
-          src="/aboutImage.jpg"
-          alt="Team collaborating around a laptop"
-          className="w-full h-auto object-cover rounded-lg"
-        />
-      </motion.div>
+      </div>
     </section>
   );
 };
