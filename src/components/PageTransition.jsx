@@ -20,7 +20,7 @@ const PageTransition = () => {
   return (
     <>
       <motion.div
-        className="fixed top-full right-0 h-screen w-screen z-30 bg-[#2e2257]"
+        className="fixed top-full right-0 h-screen w-screen z-30 bg-[#952C2C]"
         variants={transitionVariants}
         initial="initial"
         animate="animate"
@@ -28,7 +28,7 @@ const PageTransition = () => {
         transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
       ></motion.div>
       <motion.div
-        className="fixed top-full right-0 h-screen w-screen z-20 bg-[#3b2d71]"
+        className="fixed top-full right-0 h-screen w-screen z-20 bg-[#e15858]"
         variants={transitionVariants}
         initial="initial"
         animate="animate"
@@ -36,7 +36,7 @@ const PageTransition = () => {
         transition={{ delay: 0.4, duration: 0.6, ease: "easeInOut" }}
       ></motion.div>
       <motion.div
-        className="fixed top-full right-0 h-screen w-screen z-10 bg-[#2e2257]"
+        className="fixed top-full right-0 h-screen w-screen z-10 bg-[#b96c6c]"
         variants={transitionVariants}
         initial="initial"
         animate="animate"

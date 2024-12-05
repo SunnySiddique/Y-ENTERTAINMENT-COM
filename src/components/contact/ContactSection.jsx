@@ -26,7 +26,7 @@ const contactData = [
 
 const ContactSection = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
+    <div className="min-h-screen ">
       <div className="px-4 py-12 mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

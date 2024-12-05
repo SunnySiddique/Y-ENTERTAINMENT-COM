@@ -21,7 +21,7 @@ const itemVariants = {
 
 const AboutPeopleSection = () => {
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-20 px-4 ">
       <div className="container mx-auto">
         <div className="space-y-12">
           <div className="text-center">

@@ -126,7 +126,7 @@ const MediaInstagramGallery = () => {
   const swiperRef = useRef(null);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center  p-4">
       <h1 className="text-center text-5xl mb-8 uppercase font-semibold">
         Instagram
       </h1>

@@ -9,7 +9,7 @@ import VisionAndMissionSection from "../../components/about/VisionAndMissionSect
 
 const AboutPage = () => {
   return (
-    <div className=" py-10 md:py-10">
+    <div>
       {/* About Section */}
       <AboutSection />
 
