@@ -40,3 +40,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
 }
+.page-container {
+  background-color: #ffffff; /* Set a default background */
+  transition: background-color 1.5s ease-in-out; /* Smooth background transition */
+}

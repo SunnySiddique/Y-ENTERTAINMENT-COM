@@ -36,7 +36,7 @@ const FAQSection = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
-      className="bg-white p-6 rounded-lg shadow-md"
+      className="bg-white p-6 rounded-lg shadow-md mb-10 md:mb-20"
     >
       <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
       <div className="space-y-4">

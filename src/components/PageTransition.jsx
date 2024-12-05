@@ -1,23 +1,49 @@
 import { motion } from "framer-motion";
 
-const pageVariants = {
-  initial: { opacity: 0, rotateX: 90, scale: 0.9 },
-  animate: { opacity: 1, rotateX: 0, scale: 1 },
-  exit: { opacity: 0, rotateX: -90, scale: 0.9 },
+const transitionVariants = {
+  initial: {
+    y: "-100%", // Start from the bottom
+
+    height: "100%",
+  },
+  animate: {
+    y: "0%", // Move to the top (visible state)
+    height: "0%",
+  },
+  exit: {
+    y: ["0%", "100%"], // Move out of the screen towards the top
+    height: ["0%", "100%"],
+  },
 };
 
-const PageTransition = ({ children }) => {
+const PageTransition = () => {
   return (
-    <motion.div
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="min-h-screen"
-    >
-      {children}
-    </motion.div>
+    <>
+      <motion.div
+        className="fixed top-full right-0 h-screen w-screen z-30 bg-[#2e2257]"
+        variants={transitionVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
+      ></motion.div>
+      <motion.div
+        className="fixed top-full right-0 h-screen w-screen z-20 bg-[#3b2d71]"
+        variants={transitionVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ delay: 0.4, duration: 0.6, ease: "easeInOut" }}
+      ></motion.div>
+      <motion.div
+        className="fixed top-full right-0 h-screen w-screen z-10 bg-[#2e2257]"
+        variants={transitionVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ delay: 0.6, duration: 0.6, ease: "easeInOut" }}
+      ></motion.div>
+    </>
   );
 };
 

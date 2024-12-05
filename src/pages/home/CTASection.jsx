@@ -10,7 +10,7 @@ const CTASection = () => {
           src={aboutImage}
           alt="CTA background"
           layout="fill"
-          objectFit="cover"
+          className="object-cover"
           quality={100}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-indigo-700/90" />

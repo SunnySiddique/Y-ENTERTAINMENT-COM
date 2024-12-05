@@ -11,13 +11,6 @@ import FeaturesPage from "./pages/features/FeaturePage";
 import HomePage from "./pages/home/HomePage";
 import MediaPage from "./pages/media/MediaPage";
 
-// Variants for background animation
-const backgroundVariants = {
-  initial: { y: "100%" },
-  animate: { y: 0 },
-  exit: { y: "-100%" },
-};
-
 const App = () => {
   const location = useLocation();
   useEffect(() => {
@@ -25,60 +18,74 @@ const App = () => {
   }, [location]);
   return (
     <>
-      {/* Background Animation */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={location.key}
-          variants={backgroundVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.7, ease: "easeInOut" }}
-        />
-      </AnimatePresence>
-
       <div className="relative z-20">
         <Navbar />
         <AnimatePresence mode="wait">
+          <PageTransition />
           <Routes location={location} key={location.pathname}>
             <Route
               path="/"
               element={
-                <PageTransition>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <HomePage />
-                </PageTransition>
+                </motion.div>
               }
             />
             <Route
               path="/about"
               element={
-                <PageTransition>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <AboutPage />
-                </PageTransition>
+                </motion.div>
               }
             />
             <Route
               path="/features"
               element={
-                <PageTransition>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <FeaturesPage />
-                </PageTransition>
+                </motion.div>
               }
             />
             <Route
               path="/media"
               element={
-                <PageTransition>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <MediaPage />
-                </PageTransition>
+                </motion.div>
               }
             />
             <Route
               path="/contact"
               element={
-                <PageTransition>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <ContactPage />
-                </PageTransition>
+                </motion.div>
               }
             />
           </Routes>

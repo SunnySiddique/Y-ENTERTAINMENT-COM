@@ -9,7 +9,7 @@ const HeroSection = () => {
           src="/aboutImage.jpg"
           alt="Hero background"
           layout="fill"
-          objectFit="cover"
+          className="object-cover"
           quality={100}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-indigo-700/80" />
@@ -18,7 +18,7 @@ const HeroSection = () => {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           exit={{ opacity: 0, y: -20 }}
           className="text-5xl md:text-7xl font-bold mb-6"
         >
@@ -27,7 +27,7 @@ const HeroSection = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-xl md:text-2xl mb-8"
         >
           We help businesses thrive in the digital age with cutting-edge
