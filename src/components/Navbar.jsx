@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
   { href: "/", label: "WELCOME" },
@@ -62,8 +62,8 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="flex gap-1 text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors duration-300"
               >
                 <motion.span
@@ -74,7 +74,7 @@ const Navbar = () => {
                 >
                   Y <span className="logo">ENTERTAINMENT</span>
                 </motion.span>
-              </a>
+              </Link>
             </motion.div>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -85,9 +85,9 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 1), duration: 0.5 }}
                 >
-                  <a
+                  <Link
                     key={item.label}
-                    href={item.href}
+                    to={item.href}
                     className={`relative text-sm font-semibold hover:text-blue-600  transition-colors duration-300 group ${
                       currentPath === item.href
                         ? "text-cyan-400 font-light"
@@ -98,7 +98,7 @@ const Navbar = () => {
                     <span
                       className={`absolute inset-x-0 bottom-0 h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out `}
                     />
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
             </div>

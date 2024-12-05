@@ -19,6 +19,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          exit={{ opacity: 0, y: -20 }}
           className="text-5xl md:text-7xl font-bold mb-6"
         >
           Innovate. Transform. Succeed.

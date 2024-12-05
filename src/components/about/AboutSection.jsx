@@ -20,7 +20,7 @@ const AboutSection = () => {
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="text-5xl md:text-7xl font-bold mb-3 uppercase"
         >
           About Us
@@ -28,7 +28,7 @@ const AboutSection = () => {
         <motion.p
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-xl md:text-2xl max-w-2xl"
         >
           Shaping the future through innovation and creativity
