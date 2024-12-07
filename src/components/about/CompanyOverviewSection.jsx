@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import useBorder from "../../hooks/useBorder";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,9 +20,13 @@ const itemVariants = {
 };
 
 const CompanyOverviewSection = () => {
+  const borderClass = useBorder();
+
   return (
-    <section className="py-20 px-4 bg-teal-600 text-white">
-      <div className="max-w-6xl mx-auto">
+    <section
+      className={`max-w-6xl mx-auto py-20 px-4  shadow-lg ${borderClass} rounded-sm`}
+    >
+      <div>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -31,13 +36,13 @@ const CompanyOverviewSection = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl font-bold mb-8"
+            className="text-primary-foreground text-4xl font-bold mb-8 "
           >
             COMPANY OVERVIEW
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg leading-relaxed max-w-3xl mx-auto"
+            className="text-lg leading-relaxed max-w-3xl mx-auto "
           >
             Operationally, we are an entrepreneurial R&D deep tech venture,
             evolving as a lean, fully remote, international, and ethical

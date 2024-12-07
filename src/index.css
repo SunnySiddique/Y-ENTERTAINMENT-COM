@@ -1,13 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #952c2c !important;
-  color: #fff !important;
-  font-family: "Inter", sans-serif;
+  font-family: "Anek Latin", sans-serif !important;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -41,7 +44,121 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
 }
-.page-container {
-  background-color: #ffffff; /* Set a default background */
-  transition: background-color 1.5s ease-in-out; /* Smooth background transition */
+
+/* border: 1px solid #eaeaea;
+border-color: #3e3e3e; */
+/* DaisyUI Border Themes */
+.border-light {
+  border: 1px solid #eaeaea;
+}
+.border-cupcake {
+  border: 1px solid #fcd5ce;
+}
+.border-pastel {
+  border: 1px solid #eaeaea;
+}
+.border-peachy {
+  border: 1px solid #ff9a76;
+}
+.border-minty-fresh {
+  border: 1px solid #4f4947;
+}
+.border-sunshine {
+  border: 1px solid #4f4947;
+}
+.border-skyline {
+  border: 1px solid #4f4947;
+}
+.border-serene {
+  border: 1px solid #4f4947;
+}
+.border-aurora {
+  border: 1px solid #a7d3f2;
+}
+.border-bumblebee {
+  border: 1px solid #ffe6a5;
+}
+.border-lemonade {
+  border: 1px solid #c8c8c7;
+}
+.border-emerald {
+  border: 1px solid #a6c7bc;
+}
+.border-garden {
+  border: 1px solid rgb(0 0 0 / 0.1);
+}
+.border-forest {
+  border: 1px solid #3e3e3e;
+}
+.border-aqua {
+  border: 1px solid #64858b;
+}
+.border-winter {
+  border: 1px solid #dfdfdf;
+}
+.border-nord {
+  border: 1px solid #c5c7c9;
+}
+.border-black {
+  border: 1px solid #3e3e3e;
+}
+.border-dracula {
+  border: 1px solid #504644;
+}
+.border-cyberpunk {
+  border: 1px solid #cdcdcd;
+}
+.border-retro {
+  border: 1px solid #dbc4bf;
+}
+.border-night {
+  border: 1px solid #3e3e3e;
+}
+.border-dim {
+  border: 1px solid #4e5054;
+}
+.border-autumn {
+  border: 1px solid #c6c6c6;
+}
+.border-coffee {
+  border: 1px solid #614028;
+}
+.border-synthwave {
+  border: 1px solid #3e3e3e;
+}
+.border-acid {
+  border: 1px solid #dbead8;
+}
+.border-tropical {
+  border: 1px solid #4f4947;
+}
+.border-mystic {
+  border: 1px solid #4f4947;
+}
+.border-coral {
+  border: 1px solid #ff4500;
+}
+.border-aqua-splash {
+  border: 1px solid #7fffd4;
+}
+.border-luxury {
+  border: 1px solid #504644;
+}
+.border-sunset {
+  border: 1px solid #4f4947;
+}
+
+/* Custom Themes */
+.border-corporate {
+  border: 1px solid #eaeaea;
+}
+.border-valentine {
+  border: 1px solid #f9a1b5;
+}
+.border-halloween {
+  border: 1px solid #ff7518;
+}
+
+.border-default {
+  border: 1px solid #3e3e3e;
 }

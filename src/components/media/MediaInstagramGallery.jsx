@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/thumbs";
 import { Navigation, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import useBorder from "../../hooks/useBorder";
 
 const images = [
   {
@@ -124,13 +125,16 @@ const MediaInstagramGallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
+  const borderClass = useBorder();
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center  p-4">
       <h1 className="text-center text-5xl mb-8 uppercase font-semibold">
         Instagram
       </h1>
-      <div className="w-full max-w-xl bg-white p-4 shadow-lg rounded-lg space-y-6">
+      <div
+        className={`w-full max-w-xl ${borderClass} p-4 shadow-lg rounded-lg space-y-6`}
+      >
         {/* Main Swiper */}
         <Swiper
           loop={true}
@@ -162,9 +166,11 @@ const MediaInstagramGallery = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 20 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 rounded-b-lg z-20"
+                      className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70  p-4 rounded-b-lg z-20"
                     >
-                      <p className="text-lg font-semibold">{item.des}</p>
+                      <p className="text-lg font-semibold text-white">
+                        {item.des}
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -172,14 +178,14 @@ const MediaInstagramGallery = () => {
             </SwiperSlide>
           ))}
           <div
-            className="cursor-pointer absolute left-2 top-1/2 z-30 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all duration-200"
+            className="cursor-pointer absolute left-2 top-1/2 z-30 transform -translate-y-1/2 bg-primary-content bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all duration-200"
             onClick={() => swiperRef.current?.slidePrev()}
           >
             <ChevronLeft className="w-6 h-6 text-gray" />
           </div>
 
           <div
-            className="cursor-pointer absolute right-2 top-1/2 z-30 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all duration-200"
+            className="cursor-pointer absolute right-2 top-1/2 z-30 transform -translate-y-1/2 bg-primary-content bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all duration-200"
             onClick={() => swiperRef.current?.slideNext()}
           >
             <ChevronRight className="w-6 h-6 text-gray" />

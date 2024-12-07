@@ -1,33 +1,10 @@
 const Footer = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-      },
-    },
-  };
-
   return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="border-t border-[#c0c0c04e] py-12">
+      <div className="container mx-auto px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">YourCompany</h3>
+            <h3 className="text-2xl font-bold mb-4">Y-ENTERTAINMENT</h3>
             <p className="mb-4">Innovating for a better tomorrow.</p>
             <div className="flex space-x-4">
               <a
@@ -135,12 +112,13 @@ const Footer = () => {
             <p>Email: info@yentertainment.com</p>
           </div>
         </div>
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+        <div className="border-t border-[#c0c0c04e] mt-8 pt-8 text-center">
           <p>
             &copy; {new Date().getFullYear()} Y ENTERTAINMENT. All rights
             reserved.
           </p>
         </div>
+        <div className="  mt-8  text-center border-t border-[#c0c0c04e]"></div>
       </div>
     </footer>
   );

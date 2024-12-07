@@ -55,10 +55,10 @@ const RecommendedFeatures = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">
-          <span className="text-cyan-500">Recommended</span> for you
+        <h2 className="text-2xl font-bold text-primary-foreground">
+          <span>Recommended</span> for you
         </h2>
-        <button className="text-cyan-500 hover:text-cyan-600 text-sm font-medium">
+        <button className="hover:text-primary text-sm font-medium">
           View more
         </button>
       </div>
@@ -79,17 +79,17 @@ const RecommendedFeatures = () => {
         >
           {recommendedItem.map((event) => (
             <SwiperSlide key={event.id}>
-              <div className="min-w-[calc(50%-12px)] bg-white  overflow-hidden shadow-lg">
+              <div className="min-w-[calc(50%-12px)] overflow-hidden shadow-lg">
                 <div
                   className="relative h-[200px] bg-cover bg-center"
                   style={{ backgroundImage: `url(${event.image})` }}
                 >
-                  <div className="absolute inset-0 bg-black bg-opacity-40" />
-                  <div className="absolute top-0 right-0  bg-opacity-90 px-2 py-1  text-xs font-semibold text-white bg-purple-600 rounded-bl-xl">
+                  <div className="absolute inset-0 bg-primary bg-opacity-40" />
+                  <div className="absolute top-0 right-0  bg-opacity-90 px-2 py-1  text-xs font-semibold bg-primary rounded-bl-xl">
                     {event.discount}
                   </div>
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                    <h3 className="text-xl lg:text-2xl font-bold  mb-2 text-primary-foreground">
                       {event.title}
                     </h3>
                   </div>
@@ -97,18 +97,22 @@ const RecommendedFeatures = () => {
 
                 <div className="p-4 space-y-3">
                   <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex items-center gap-2 ">
                       <Calendar className="w-4 h-4" />
-                      <span className="text-sm">{event.date}</span>
+                      <span className="text-sm text-primary-foreground">
+                        {event.date}
+                      </span>
                     </div>
                     <div className="text-right">
-                      <span className="text-sm text-gray-500">From</span>
-                      <span className="ml-1 text-lg font-semibold">
+                      <span className="text-sm text-primary-foreground">
+                        From
+                      </span>
+                      <span className="ml-1 text-lg font-semibold text-primary-foreground">
                         ${event.price}
                       </span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-600">
+                  <div className="flex items-center gap-2 ">
                     <MapPin className="w-4 h-4" />
                     <span className="text-sm">{event.location}</span>
                   </div>
@@ -120,7 +124,7 @@ const RecommendedFeatures = () => {
 
         {!isBeginning && (
           <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-900 z-50 hover:bg-[#eee] duration-300 transition"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-8 h-8 bg-slate-300 rounded-full shadow-lg flex items-center justify-center  z-50 hover:bg-slate-300 duration-300 transition"
             onClick={() => swiperRef.current?.swiper.slidePrev()}
           >
             <ChevronLeft className="w-5 h-5" />
@@ -128,7 +132,7 @@ const RecommendedFeatures = () => {
         )}
         {!isEnd && (
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-900 z-50 hover:bg-[#eee] duration-300 transition"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-8 h-8 bg-slate-300 rounded-full shadow-lg flex items-center justify-center  z-50 hover:bg-slate-300 duration-300 transition"
             onClick={() => swiperRef.current?.swiper.slideNext()}
           >
             <ChevronRight className="w-5 h-5" />

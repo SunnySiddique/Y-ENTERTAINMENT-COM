@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
+import useBorder from "../../hooks/useBorder";
 import historyImage from "/history.jpg";
 
 const containerVariants = {
@@ -22,6 +23,8 @@ const itemVariants = {
 };
 
 const CompanyHistorySection = () => {
+  const borderClass = useBorder();
+
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto">
@@ -35,15 +38,15 @@ const CompanyHistorySection = () => {
           <div className="text-center">
             <motion.div
               variants={itemVariants}
-              whileHover={{ rotate: 360, scale: 1.1, zoom: 1.1 }}
+              whileHoverr={{ rotate: 360, scale: 1.1 }}
               transition={{ duration: 0.5 }}
-              className="inline-block p-3 rounded-full bg-teal-100 text-teal-600 mb-4"
+              className={`bg-primary/40 text-primary-foreground inline-block p-3 rounded-md ${borderClass} mb-4`}
             >
               <Clock className="w-6 h-6" />
             </motion.div>
             <motion.h2
               variants={itemVariants}
-              className="text-4xl font-bold mb-4 text-gray-800"
+              className="text-primary-foreground text-4xl font-bold mb-4 "
             >
               OUR HISTORY
             </motion.h2>
@@ -60,6 +63,7 @@ const CompanyHistorySection = () => {
                 src={historyImage}
                 alt="Company History"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                style={{ transform: "scale(1.05)" }}
               />
             </motion.div>
             <div className="space-y-6">
@@ -67,14 +71,11 @@ const CompanyHistorySection = () => {
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.9 }}
-                className="bg-white rounded-lg shadow-lg p-6"
-                style={{
-                  borderWidth: "1px",
-                  borderColor: "hsl(240, 5.9%, 90%)",
-                }}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.5 }}
+                className={`rounded-lg shadow-lg p-6 ${borderClass}`}
               >
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-primaryText leading-relaxed">
                   Our journey began in 2013 in London's City of Westminster,
                   when the company was incorporated at Ingestre Place in Soho,
                   thriving on the area's creative energy. We subsequently moved
@@ -87,14 +88,11 @@ const CompanyHistorySection = () => {
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -5 }}
                 transition={{ duration: 0.9, delay: 0.2 }}
-                className="bg-white rounded-lg shadow-lg p-6"
-                style={{
-                  borderWidth: "1px",
-                  borderColor: "hsl(240, 5.9%, 90%)",
-                }}
+                className={`rounded-lg shadow-lg p-6 ${borderClass}`}
               >
-                <p className="text-gray-700 leading-relaxed">
+                <p className="leading-relaxed">
                   Today, we are based in the historically rich and culturally
                   diverse city of Liverpool, whose UNESCO World Heritage-listed
                   waterfront and status as a European Capital of Culture in 2008

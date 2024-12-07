@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, Settings, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-[#f0f0f0]/80 backdrop-blur-lg shadow-md"
+        className=" border-b border-gray-200 backdrop-blur-lg shadow-md"
       >
         <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -64,15 +64,14 @@ const Navbar = () => {
             >
               <Link
                 to="/"
-                className="flex gap-1 text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors duration-300"
+                className="flex gap-1 text-2xl font-bold  transition-colors duration-300 text-primary-foreground"
               >
                 <motion.span
-                  className="text-blue-600"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
                 >
-                  Y <span className="logo">ENTERTAINMENT</span>
+                  Y <span>ENTERTAINMENT</span>
                 </motion.span>
               </Link>
             </motion.div>
@@ -88,24 +87,25 @@ const Navbar = () => {
                   <Link
                     key={item.label}
                     to={item.href}
-                    className={`relative text-sm font-semibold hover:text-blue-600  transition-colors duration-300 group ${
-                      currentPath === item.href
-                        ? "text-cyan-400 font-light"
-                        : "text-gray-700"
+                    className={`relative text-sm font-semibold text-primary-foreground  transition-colors duration-300 group ${
+                      currentPath === item.href ? "text-primary-foreground" : ""
                     }`}
                   >
                     {item.label}
                     <span
-                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out `}
+                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out `}
                     />
                   </Link>
                 </motion.div>
               ))}
+              <Link to={"/settings"} className="cursor-pointer">
+                <Settings className="h-6 w-6" />
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+              className="md:hidden p-2 rounded-md  hover:text-primary-content hover:bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
@@ -127,20 +127,26 @@ const Navbar = () => {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="md:hidden absolute top-16 inset-x-0 bg-[#f0f0f0]  shadow-lg overflow-hidden"
+              className="md:hidden absolute top-16 inset-x-0  bg-primary-content shadow-lg overflow-hidden"
             >
               <motion.div className="px-4 py-2 space-y-1">
                 {menuItems.map((item) => (
                   <motion.div key={item.label} variants={itemVariants}>
                     <a
                       href={item.href}
-                      className="block text-sm px-3 py-2  font-medium  hover:text-blue-600 transition-colors  hover:bg-gray-50 rounded-md  duration-200"
+                      className="block text-sm px-3 py-2  font-medium  hover:text-primary-content transition-colors  hover:bg-gray-50 rounded-md  duration-200"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
                     </a>
                   </motion.div>
                 ))}
+                <Link
+                  to={"/settings"}
+                  className="cursor-pointer text-center flex justify-start ml-5"
+                >
+                  <Settings className="h-5 w-5" />
+                </Link>
               </motion.div>
             </motion.div>
           )}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BarChart, CheckCircle, Users } from "lucide-react";
+import useBorder from "../../hooks/useBorder";
 
 const features = [
   {
@@ -22,28 +23,42 @@ const features = [
 ];
 
 const HomeFeaturesSection = () => {
+  const borderClass = useBorder();
   return (
-    <section className="py-20">
+    <section className="py-20 ">
+      {" "}
+      {/* Primary background color */}
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Why Choose Us</h2>
+        <h2 className="text-primary-foreground text-4xl font-bold text-center mb-12 ">
+          {/* Secondary color for heading */}
+          Why Choose Us
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+              transition={{
+                duration: 0.3,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
               viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 group"
+              className={`${borderClass} p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 group`}
             >
               <div className="mb-4 relative">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
-                  <feature.icon className="w-8 h-8 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                  <feature.icon className="w-8 h-8  group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <div className="absolute top-0 left-0 w-full h-full bg-blue-600 rounded-full transform scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-10 transition-all duration-300"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-primary rounded-full transform scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-10 transition-all duration-300"></div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-primary-foreground">
+                {/* Secondary color for card titles */}
+                {feature.title}
+              </h3>
+              <p>{feature.description}</p>
             </motion.div>
           ))}
         </div>

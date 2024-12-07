@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
+import useBorder from "../../hooks/useBorder";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,9 +20,34 @@ const itemVariants = {
   },
 };
 
+const cardContent = [
+  {
+    title: "Diverse Team Building",
+    description:
+      "In our efforts to build a highly competent and diverse team, we actively seek professionals from a wide range of backgrounds, cultures, ages, abilities, and experiences, and provide support and development opportunities for women in leadership positions.",
+  },
+  {
+    title: "Industry Partnerships",
+    description:
+      "We also seek to stay at the forefront of industry advancements and research by forming partnerships with academia and organizations in various industries and leveraging the expertise of our scientific advisors.",
+  },
+  {
+    title: "Talent Development",
+    description:
+      "Our talent development approach, through apprenticeships and internships, brings us fresh ideas and unique perspectives while offering hands-on experience and training to young people entering the job market.",
+  },
+  {
+    title: "Global Engagement",
+    description:
+      "Our team-building efforts extend locally, nationally, and internationally, and we actively participate in various national and international government programmes.",
+  },
+];
+
 const AboutPeopleSection = () => {
+  const borderClass = useBorder();
+
   return (
-    <section className="py-20 px-4 ">
+    <section className="py-20 px-4">
       <div className="container mx-auto">
         <div className="space-y-12">
           <div className="text-center">
@@ -29,14 +55,18 @@ const AboutPeopleSection = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
-              whileHover={{ rotate: 360, scale: 1.1, zoom: 1.1 }}
+              whileHover={{
+                rotate: 360,
+                scale: 1.1,
+                zoom: 1.1,
+              }}
               transition={{
                 duration: 0.4,
                 type: "spring",
                 stiffness: 100,
                 damping: 12,
               }}
-              className="inline-block p-3 rounded-full bg-teal-100 text-teal-600 mb-4"
+              className={`bg-primary/20 inline-block p-3 rounded-md mb-4  ${borderClass}`}
             >
               <Users className="w-6 h-6" />
             </motion.div>
@@ -51,7 +81,7 @@ const AboutPeopleSection = () => {
                 stiffness: 100,
                 damping: 12,
               }}
-              className="text-4xl font-bold mb-4 text-gray-800"
+              className="text-4xl font-bold mb-4 text-primary-foreground"
             >
               OUR PEOPLE
             </motion.h2>
@@ -66,7 +96,7 @@ const AboutPeopleSection = () => {
                 stiffness: 100,
                 damping: 12,
               }}
-              className="text-lg text-gray-600 max-w-2xl mx-auto"
+              className="text-lg max-w-2xl mx-auto"
             >
               At Y Entertainment, we adhere to the principles of diversity and
               inclusion and are guided by research that highlights the
@@ -82,80 +112,19 @@ const AboutPeopleSection = () => {
             viewport={{ once: false }}
             className="grid md:grid-cols-2 gap-8"
           >
-            <motion.div
-              variants={itemVariants}
-              className="bg-white rounded-lg shadow-lg p-6"
-              style={{
-                borderWidth: "1px",
-                borderColor: "hsl(240, 5.9%, 90%)",
-              }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-teal-600">
-                Diverse Team Building
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                In our efforts to build a highly competent and diverse team, we
-                actively seek professionals from a wide range of backgrounds,
-                cultures, ages, abilities, and experiences, and provide support
-                and development opportunities for women in leadership positions.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="bg-white rounded-lg shadow-lg p-6"
-              style={{
-                borderWidth: "1px",
-                borderColor: "hsl(240, 5.9%, 90%)",
-              }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-teal-600">
-                Industry Partnerships
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                We also seek to stay at the forefront of industry advancements
-                and research by forming partnerships with academia and
-                organizations in various industries and leveraging the expertise
-                of our scientific advisors.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="bg-white rounded-lg shadow-lg p-6"
-              style={{
-                borderWidth: "1px",
-                borderColor: "hsl(240, 5.9%, 90%)",
-              }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-teal-600">
-                Talent Development
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Our talent development approach, through apprenticeships and
-                internships, brings us fresh ideas and unique perspectives while
-                offering hands-on experience and training to young people
-                entering the job market.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="bg-white rounded-lg shadow-lg p-6"
-              style={{
-                borderWidth: "1px",
-                borderColor: "hsl(240, 5.9%, 90%)",
-              }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-teal-600">
-                Global Engagement
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Our team-building efforts extend locally, nationally, and
-                internationally, and we actively participate in various national
-                and international government programmes.
-              </p>
-            </motion.div>
+            {cardContent.map((card, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+                className={`rounded-lg shadow-lg p-6 hover:shadow-2xl transition-all duration-300 ${borderClass}`}
+              >
+                <h3 className="text-xl font-semibold mb-4 text-primary-foreground">
+                  {card.title}
+                </h3>
+                <p className="leading-relaxed">{card.description}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>

@@ -128,7 +128,7 @@ const MediaCards = () => {
         {galleryItems.map((item, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-lg overflow-hidden shadow-md group"
+            className=" rounded-lg overflow-hidden shadow-md group"
             initial={{ opacity: 0, y: 150 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}

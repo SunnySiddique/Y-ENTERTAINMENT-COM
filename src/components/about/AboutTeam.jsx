@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Twitter } from "lucide-react";
+import useBorder from "../../hooks/useBorder";
 
 // team members data
 const teamMembers = [
@@ -62,6 +63,8 @@ const teamMembers = [
 ];
 
 const AboutTeam = () => {
+  const borderClass = useBorder();
+
   return (
     <section className="py-16 px-4">
       <div className="container mx-auto">
@@ -71,7 +74,7 @@ const AboutTeam = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl font-bold mb-2 uppercase"
+            className="text-primary-foreground text-3xl font-bold mb-2 uppercase"
           >
             Our Team
           </motion.h2>
@@ -80,7 +83,6 @@ const AboutTeam = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-gray-500"
           >
             Lorem ipsum
           </motion.p>
@@ -92,13 +94,13 @@ const AboutTeam = () => {
               key={index}
               initial={{ opacity: 0, y: 150 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{
-                duration: 1,
+                duration: 0.6,
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className="relative text-center bg-white border border-gray-200 rounded-lg shadow group"
+              className={`relative text-center ${borderClass} rounded-lg shadow group`}
             >
               {/* Image Wrapper */}
               <div className="relative rounded-t-lg overflow-hidden">
@@ -118,9 +120,11 @@ const AboutTeam = () => {
                   transition={{ duration: 0.3 }}
                   className="absolute inset-0 bg-black/75 flex flex-col justify-center items-center text-white"
                 >
-                  <h3 className="text-lg font-semibold mb-2">{member.name}</h3>
+                  <h3 className="text-lg font-semibold mb-2 text-primary-foreground">
+                    {member.name}
+                  </h3>
                   <p className="mb-4">{member.title}</p>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 text-primary-foreground">
                     <a
                       href={member.twitter}
                       className="text-white hover:text-gray-300 transition-colors"
@@ -141,8 +145,10 @@ const AboutTeam = () => {
 
               {/* Card Content */}
               <div className="p-5">
-                <h3 className="font-semibold text-lg">{member.name}</h3>
-                <p className="text-teal-500 mb-3">{member.title}</p>
+                <h3 className="font-semibold text-lg text-primary-foreground">
+                  {member.name}
+                </h3>
+                <p className="mb-3">{member.title}</p>
               </div>
             </motion.div>
           ))}

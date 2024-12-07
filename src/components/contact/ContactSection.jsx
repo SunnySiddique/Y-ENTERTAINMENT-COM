@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState } from "react";
+import useBorder from "../../hooks/useBorder";
+import IconContainer from "./IconContainer";
 
 const contactData = [
   {
@@ -25,8 +28,11 @@ const contactData = [
 ];
 
 const ContactSection = () => {
+  const [dragPosition, setDragPosition] = useState({ x: 0, y: 0 });
+  const borderClass = useBorder();
+
   return (
-    <div className="min-h-screen ">
+    <>
       <div className="px-4 py-12 mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,17 +40,17 @@ const ContactSection = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground">
             Let&apos;s Connect
           </h1>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg max-w-2xl mx-auto">
             Whether you have questions, need assistance, or want to explore
             partnerships, we&apos;re here to help shape your vision into
             reality.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 scrollbar-hide ">
           {contactData.map((item, index) => (
             <motion.div
               key={item.title}
@@ -52,13 +58,31 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.4 }}
               viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              drag
+              dragConstraints={{
+                left: -150,
+                right: 150,
+                top: 0,
+                bottom: 200,
+              }}
+              dragElastic={0.1}
+              whileDrag={{
+                scale: 1.1,
+                rotateX: -10,
+                rotateY: 10,
+                zIndex: 10,
+              }}
+              onDragEnd={(event, info) => {
+                setDragPosition({ x: 0, y: 0 });
+              }}
+              style={{ cursor: "grab" }}
+              className={`${borderClass} p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300`}
             >
-              <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
-                <item.icon className="w-6 h-6 text-blue-600" />
-              </div>
-              <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-              <p className="text-gray-600">{item.description}</p>
+              <IconContainer key={index} icon={item.icon} />
+              <h2 className="text-xl font-semibold mb-2 text-primary-foreground">
+                {item.title}
+              </h2>
+              <p>{item.description}</p>
             </motion.div>
           ))}
         </div>
@@ -68,10 +92,10 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white p-6 rounded-lg shadow-md"
+            className={`${borderClass} p-6 rounded-lg shadow-md`}
           >
             <h2 className="text-2xl font-bold mb-4">Send us a Message</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6">
               Fill out the form below and we&apos;ll get back to you as soon as
               possible.
             </p>
@@ -82,7 +106,7 @@ const ContactSection = () => {
                     type="text"
                     name="firstName"
                     placeholder="First Name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 rounded-md focus:outline-none ring-2 ring-second"
                     required
                   />
                 </div>
@@ -91,7 +115,7 @@ const ContactSection = () => {
                     type="text"
                     name="lastName"
                     placeholder="Last Name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secon"
                     required
                   />
                 </div>
@@ -101,7 +125,7 @@ const ContactSection = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secon"
                   required
                 />
               </div>
@@ -109,13 +133,13 @@ const ContactSection = () => {
                 <textarea
                   name="message"
                   placeholder="Your message"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[150px]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secon min-h-[150px]"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center"
+                className={`${borderClass} py-2 px-4 rounded-md hover:bg-primary transition-colors duration-300 flex items-center justify-center`}
               >
                 Send Message
                 <Send className="w-4 h-4 ml-2" />
@@ -129,28 +153,28 @@ const ContactSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="space-y-6"
           >
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className={`${borderClass} p-6 rounded-lg shadow-md`}>
               <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
-              <p className="text-gray-600 mb-6">
+              <p className="mb-6">
                 Reach out to us through any of these channels
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <MapPin className="w-5 h-5 text-blue-600" />
+                  <MapPin className="w-5 h-5" />
                   <p>Alaska, United States</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Mail className="w-5 h-5 text-blue-600" />
+                  <Mail className="w-5 h-5" />
                   <p>team@yentertainmentltd.com</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Phone className="w-5 h-5 text-blue-600" />
+                  <Phone className="w-5 h-5" />
                   <p>+447347010077</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className={`${borderClass} p-6 rounded-lg shadow-md`}>
               <h2 className="text-2xl font-bold mb-4">Office Location</h2>
               <div className="aspect-video rounded-lg overflow-hidden">
                 <iframe
@@ -167,7 +191,7 @@ const ContactSection = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

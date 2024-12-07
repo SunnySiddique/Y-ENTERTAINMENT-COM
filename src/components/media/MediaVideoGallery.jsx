@@ -47,7 +47,7 @@ const MediaVideoGallery = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="flex flex-col"
           >
-            <div className="relative aspect-video bg-black rounded-lg overflow-hidden">
+            <div className="relative aspect-video bg-primary-content rounded-lg overflow-hidden">
               <iframe
                 src={`https://www.youtube.com/embed/${video.youtubeId}`}
                 title={video.title}

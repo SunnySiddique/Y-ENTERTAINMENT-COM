@@ -24,6 +24,7 @@ const faqItems = [
       "While we're based in Alaska, we offer our services nationwide and can accommodate international requests as well.",
   },
 ];
+
 const FAQSection = () => {
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -36,21 +37,25 @@ const FAQSection = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
-      className="container mx-auto p-6 rounded-lg shadow-md mb-10 md:mb-20 text-white"
+      className="container mx-auto p-6 rounded-lg shadow-md mb-10 md:mb-20 ]"
     >
-      <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+      <h2 className="text-2xl font-bold mb-6 ">Frequently Asked Questions</h2>{" "}
+      {/* Cadet Blue text (30%) */}
       <div className="space-y-4">
         {faqItems.map((item, index) => (
-          <div key={index} className="border-b border-gray-200 pb-4">
+          <div key={index} className="border-b border-secondary  pb-4">
+            {" "}
+            {/* Cadet Blue border (30%) */}
             <button
               onClick={() => toggleFaq(index)}
               className="flex justify-between items-center w-full text-left"
             >
-              <span className="text-lg font-semibold">{item.question}</span>
+              <span className="text-lg font-semibold ">{item.question}</span>{" "}
+              {/* Cadet Blue text (30%) */}
               <ChevronDown
-                className={`w-5 h-5 text-blue-600 transform transition-transform duration-200 ${
+                className={`w-5 h-5  transform transition-transform duration-200 ${
                   openFaq === index ? "rotate-180" : ""
-                }`}
+                }`} // Tomato icon color (10%)
               />
             </button>
             <AnimatePresence>
@@ -60,7 +65,7 @@ const FAQSection = () => {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="mt-2 text-gray-600"
+                  className="mt-2 " // Darker text for better contrast on Eggshell background
                 >
                   {item.answer}
                 </motion.div>

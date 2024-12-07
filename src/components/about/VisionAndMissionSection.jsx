@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import useBorder from "../../hooks/useBorder";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,8 +20,10 @@ const itemVariants = {
 };
 
 const VisionAndMissionSection = () => {
+  const borderClass = useBorder();
+
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 ">
       <div className="container mx-auto">
         <motion.div
           variants={containerVariants}
@@ -31,10 +34,13 @@ const VisionAndMissionSection = () => {
         >
           <motion.div
             variants={itemVariants}
-            className="bg-white p-8 rounded-lg shadow-lg"
+            whileHover={{ y: -5 }}
+            className={`${borderClass} p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow`}
           >
-            <h2 className="text-3xl font-bold mb-4 text-teal-600">VISION</h2>
-            <p className="text-gray-700 italic">
+            <h2 className="text-3xl font-bold mb-4 text-primary-foreground">
+              VISION
+            </h2>
+            <p className=" italic">
               To enjoy the moments, refine the purpose, create a contemporary
               design, and get the Tower of Babylon completed.
             </p>
@@ -42,10 +48,13 @@ const VisionAndMissionSection = () => {
 
           <motion.div
             variants={itemVariants}
-            className="bg-white p-8 rounded-lg shadow-lg"
+            whileHover={{ y: -5 }}
+            className={`${borderClass} p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow`}
           >
-            <h2 className="text-3xl font-bold mb-4 text-teal-600">MISSION</h2>
-            <p className="text-gray-700 italic">
+            <h2 className="text-primary-foreground text-3xl font-bold mb-4 ">
+              MISSION
+            </h2>
+            <p className=" italic">
               To use authenticity as a driving force for disrupting the status
               quo and designing experiences that leave timeless impressions.
               Catalyzing technology, creativity, and entrepreneurship through
