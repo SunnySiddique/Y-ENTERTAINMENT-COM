@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="border-t border-[#c0c0c04e] py-12">
@@ -63,44 +65,44 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Quick as</h4>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="hover:text-blue-400 transition-colors duration-300"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/about"
+                <Link
+                  to="/about"
                   className="hover:text-blue-400 transition-colors duration-300"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/feature"
+                <Link
+                  to="/feature"
                   className="hover:text-blue-400 transition-colors duration-300"
                 >
                   Features
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/media"
+                <Link
+                  to="/media"
                   className="hover:text-blue-400 transition-colors duration-300"
                 >
                   Media
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="hover:text-blue-400 transition-colors duration-300"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

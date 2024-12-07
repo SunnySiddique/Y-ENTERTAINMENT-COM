@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import aboutImage from "/aboutImage.jpg";
 
 const CTASection = () => {
@@ -40,13 +41,13 @@ const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="bg-primary text-primary-foreground py-2 px-6 sm:py-3 sm:px-8 rounded-full font-semibold text-sm sm:text-lg hover:bg-primary/55 transition duration-300 inline-flex items-center group"
             >
               Contact Us Today
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
