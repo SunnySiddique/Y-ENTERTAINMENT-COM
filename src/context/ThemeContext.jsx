@@ -6,7 +6,7 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("f0f9ff");
+  const [theme, setTheme] = useState("#f0f9ff");
 
   // Get the saved theme from localStorage on mount
   useEffect(() => {
