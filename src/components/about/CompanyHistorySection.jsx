@@ -38,7 +38,7 @@ const CompanyHistorySection = () => {
           <div className="text-center">
             <motion.div
               variants={itemVariants}
-              whileHoverr={{ rotate: 360, scale: 1.1 }}
+              whileHover={{ rotate: 360, scale: 1.1 }}
               transition={{ duration: 0.5 }}
               className={`bg-primary/40 text-primary-foreground inline-block p-3 rounded-md ${borderClass} mb-4`}
             >
@@ -75,7 +75,7 @@ const CompanyHistorySection = () => {
                 transition={{ duration: 0.5 }}
                 className={`rounded-lg shadow-lg p-6 ${borderClass}`}
               >
-                <p className="text-primaryText leading-relaxed">
+                <p className="text-justify md:text-balance leading-relaxed">
                   Our journey began in 2013 in London's City of Westminster,
                   when the company was incorporated at Ingestre Place in Soho,
                   thriving on the area's creative energy. We subsequently moved
@@ -92,7 +92,7 @@ const CompanyHistorySection = () => {
                 transition={{ duration: 0.9, delay: 0.2 }}
                 className={`rounded-lg shadow-lg p-6 ${borderClass}`}
               >
-                <p className="leading-relaxed">
+                <p className="text-justify md:text-balance leading-relaxed">
                   Today, we are based in the historically rich and culturally
                   diverse city of Liverpool, whose UNESCO World Heritage-listed
                   waterfront and status as a European Capital of Culture in 2008

@@ -96,7 +96,7 @@ const AboutPeopleSection = () => {
                 stiffness: 100,
                 damping: 12,
               }}
-              className="text-lg max-w-2xl mx-auto"
+              className="text-lg max-w-2xl mx-auto text-justify md:text-balance"
             >
               At Y Entertainment, we adhere to the principles of diversity and
               inclusion and are guided by research that highlights the
@@ -122,7 +122,9 @@ const AboutPeopleSection = () => {
                 <h3 className="text-xl font-semibold mb-4 text-primary-foreground">
                   {card.title}
                 </h3>
-                <p className="leading-relaxed">{card.description}</p>
+                <p className="text-justify md:text-balance leading-relaxed">
+                  {card.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>

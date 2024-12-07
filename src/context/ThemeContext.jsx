@@ -6,11 +6,11 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("#f0f9ff");
+  const [theme, setTheme] = useState("light");
 
   // Get the saved theme from localStorage on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "#f0f9ff";
+    const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);

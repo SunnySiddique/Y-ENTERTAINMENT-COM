@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, MapPin } from "lucide-react";
-import React from "react";
+
 import { Link, useParams } from "react-router-dom";
 
 const features = [
@@ -160,10 +160,13 @@ const features = [
   },
 ];
 
+import React from "react";
+import useBorder from "../../hooks/useBorder";
+
 const FeatureDetailPage = () => {
   const { id } = useParams();
   const event = features.find((e) => e.id === Number(id));
-
+  const borderClass = useBorder();
   if (!event) {
     return <div className="container mx-auto px-4 py-8">Event not found</div>;
   }
@@ -174,25 +177,29 @@ const FeatureDetailPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200"
+      className="min-h-screen "
     >
       <div className="container mx-auto px-4 py-8">
+        {/* Back Button */}
         <Link to="/features" className="inline-block mb-6">
           <motion.button
             whileHover={{ x: -5 }}
-            className="flex items-center  hover:text-blue-800 transition-colors duration-200"
+            className="flex items-center  hover:text-primary transition-colors duration-200"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
             Back to Features
           </motion.button>
         </Link>
+
+        {/* Feature Card */}
         <motion.div
           initial={{ y: 50 }}
           animate={{ y: 0 }}
           transition={{ type: "spring", stiffness: 100 }}
-          className=" shadow-2xl rounded-lg overflow-hidden"
+          className="shadow-2xl rounded-lg overflow-hidden"
         >
-          <div className="relative h-64 sm:h-80 md:h-96">
+          {/* Image Section */}
+          <div className="relative h-64 sm:h-80 md:h-[400px]">
             <motion.img
               initial={{ scale: 1.1 }}
               animate={{ scale: 1 }}
@@ -201,31 +208,27 @@ const FeatureDetailPage = () => {
               alt={event.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-40" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 ">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">
-                {event.title}
-              </h1>
-              {event.location && (
-                <p className="flex items-center text-lg sm:text-xl drop-shadow-md">
-                  <MapPin className="mr-2 h-5 w-5" />
-                  {event.location}
-                </p>
-              )}
-            </div>
+            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
           </div>
-          <div className="p-6 sm:p-8">
-            {event.date && (
-              <div className="flex items-center mb-4">
-                <Calendar className="mr-2 h-5 w-5" />
-                <span>{event.date}</span>
-              </div>
+
+          {/* Content Section */}
+          <div className={`${borderClass} p-6 sm:p-8`}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ">
+              {event.title}
+            </h1>
+
+            {event.location && (
+              <p className="flex items-center text-lg sm:text-xl mb-4">
+                <MapPin className="mr-2 h-5 w-5 text-blue-600" />
+                {event.location}
+              </p>
             )}
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg leading-relaxed mb-8 "
+              className="text-base sm:text-lg leading-relaxed text-gray-700"
             >
               {event.description}
             </motion.p>

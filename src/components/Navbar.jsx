@@ -87,13 +87,13 @@ const Navbar = () => {
                   <Link
                     key={item.label}
                     to={item.href}
-                    className={`relative text-sm font-semibold text-primary-foreground  transition-colors duration-300 group ${
+                    className={`relative pb-1 text-sm font-semibold text-primary-foreground hover:text-primary transition-colors duration-300 group ${
                       currentPath === item.href ? "text-primary-foreground" : ""
                     }`}
                   >
                     {item.label}
                     <span
-                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out `}
+                      className={` absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out `}
                     />
                   </Link>
                 </motion.div>
@@ -134,7 +134,7 @@ const Navbar = () => {
                   <motion.div key={item.label} variants={itemVariants}>
                     <a
                       href={item.href}
-                      className="block text-sm px-3 py-2  font-medium  hover:text-primary-content transition-colors  hover:bg-gray-50 rounded-md  duration-200"
+                      className="block text-sm px-3 py-2  font-medium  hover:text-primary-content transition-colors  hover:bg-primary rounded-md  duration-200"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
@@ -143,7 +143,7 @@ const Navbar = () => {
                 ))}
                 <Link
                   to={"/settings"}
-                  className="cursor-pointer text-center flex justify-start ml-5"
+                  className="block text-sm px-3 py-2  font-medium  hover:text-primary-content transition-colors  hover:bg-primary rounded-md  duration-200"
                 >
                   <Settings className="h-5 w-5" />
                 </Link>

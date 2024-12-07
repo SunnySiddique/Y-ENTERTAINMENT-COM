@@ -40,22 +40,18 @@ const FAQSection = () => {
       className="container mx-auto p-6 rounded-lg shadow-md mb-10 md:mb-20 ]"
     >
       <h2 className="text-2xl font-bold mb-6 ">Frequently Asked Questions</h2>{" "}
-      {/* Cadet Blue text (30%) */}
       <div className="space-y-4">
         {faqItems.map((item, index) => (
-          <div key={index} className="border-b border-secondary  pb-4">
-            {" "}
-            {/* Cadet Blue border (30%) */}
+          <div key={index} className="border-b border-primary  pb-4">
             <button
               onClick={() => toggleFaq(index)}
               className="flex justify-between items-center w-full text-left"
             >
               <span className="text-lg font-semibold ">{item.question}</span>{" "}
-              {/* Cadet Blue text (30%) */}
               <ChevronDown
                 className={`w-5 h-5  transform transition-transform duration-200 ${
                   openFaq === index ? "rotate-180" : ""
-                }`} // Tomato icon color (10%)
+                }`}
               />
             </button>
             <AnimatePresence>
@@ -65,7 +61,7 @@ const FAQSection = () => {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="mt-2 " // Darker text for better contrast on Eggshell background
+                  className="mt-2 "
                 >
                   {item.answer}
                 </motion.div>
