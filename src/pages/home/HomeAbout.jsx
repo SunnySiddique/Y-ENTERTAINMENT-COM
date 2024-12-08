@@ -6,8 +6,6 @@ import aboutImage from "/images/aboutImage.jpg";
 const HomeAbout = () => {
   return (
     <section className="py-20 ">
-      {" "}
-      {/* Primary background color */}
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <motion.div
@@ -25,7 +23,7 @@ const HomeAbout = () => {
                 height={600}
                 className="rounded-lg shadow-xl"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg z-10"></div>
             </div>
           </motion.div>
           <motion.div
