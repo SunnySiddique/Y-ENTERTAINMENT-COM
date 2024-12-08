@@ -6,7 +6,7 @@ const recommendedItem = [
   {
     id: 1,
     title: "Fuel Your Passion for Rock Music",
-    image: "/aboutImage.jpg",
+    image: "/images/aboutImage.jpg",
     price: 100,
     date: "Tuesday, August 18 | 06:00 PM",
     location: "New York, NY",
@@ -15,7 +15,7 @@ const recommendedItem = [
   {
     id: 2,
     title: "Musical Fusion Festival",
-    image: "/aboutImage.jpg",
+    image: "/images/aboutImage.jpg",
     price: 90,
     date: "Monday, June 06 | 06:00 PM",
     location: "New York, NY",
@@ -24,7 +24,7 @@ const recommendedItem = [
   {
     id: 3,
     title: "Summer Beats Fest",
-    image: "/aboutImage.jpg",
+    image: "/images/aboutImage.jpg",
     price: 85,
     date: "Saturday, July 09 | 07:00 PM",
     location: "Chicago, IL",
@@ -33,7 +33,7 @@ const recommendedItem = [
   {
     id: 4,
     title: "Classical Symphony Night",
-    image: "/aboutImage.jpg",
+    image: "/images/aboutImage.jpg",
     price: 120,
     date: "Sunday, September 11 | 08:00 PM",
     location: "Los Angeles, CA",

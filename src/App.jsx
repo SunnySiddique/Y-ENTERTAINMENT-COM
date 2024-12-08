@@ -2,12 +2,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "swiper/css";
+import StarsCanvas from "./canvas/StartCanvas";
 import FeatureDetailPage from "./components/features/FeatureDetailPage";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
 import PageTransition from "./components/PageTransition";
 import SettingPage from "./components/SettingPage";
 import { useTheme } from "./context/ThemeContext";
+import Navbar from "./layout/Navbar";
 import AboutPage from "./pages/about/AboutPage";
 import ContactPage from "./pages/contact/ContactPage";
 import FeaturesPage from "./pages/features/FeaturePage";
@@ -28,6 +29,7 @@ const App = () => {
     <>
       <div data-theme={theme} className="relative z-20">
         <Navbar />
+        <StarsCanvas />
         <AnimatePresence mode="wait">
           <PageTransition />
           <Routes location={location} key={location.pathname}>

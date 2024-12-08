@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import aboutImage from "/images/aboutImage.jpg";
 const HeroSection = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="/aboutImage.jpg"
+          src={aboutImage}
           alt="Hero background"
           className="object-cover w-full h-full"
           quality={100}

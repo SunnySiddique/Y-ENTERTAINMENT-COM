@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import useBorder from "../../hooks/useBorder";
-import aboutImage from "/aboutImage.jpg";
+import aboutImage from "/images/aboutImage.jpg";
 
 const containerVariants = {
   hidden: { opacity: 0 },

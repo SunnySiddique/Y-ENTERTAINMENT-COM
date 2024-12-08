@@ -5,7 +5,8 @@ import { Suspense, useRef } from "react";
 
 const Stars = () => {
   const ref = useRef();
-  // Correctly use random.inSphere to generate positions
+
+  // Generate positions using random.inSphere
   const sphere = random.inSphere(new Float32Array(5001), { radius: 1.2 });
 
   useFrame((_state, delta) => {

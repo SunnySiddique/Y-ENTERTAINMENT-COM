@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aboutImage from "/aboutImage.jpg";
+import aboutImage from "/images/aboutImage.jpg";
 
 const AboutSection = () => {
   return (

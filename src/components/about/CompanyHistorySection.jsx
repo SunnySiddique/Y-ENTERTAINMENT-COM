@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
 import useBorder from "../../hooks/useBorder";
-import historyImage from "/history.jpg";
+import historyImage from "/images/history.jpg";
 
 const containerVariants = {
   hidden: { opacity: 0 },

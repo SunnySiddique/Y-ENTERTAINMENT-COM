@@ -70,7 +70,7 @@ const ContactSection = () => {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="flex flex-col justify-between md:flex-row items-center gap-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
