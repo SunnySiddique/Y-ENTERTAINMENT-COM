@@ -11,9 +11,9 @@ export default {
     themes: [
       "light",
       "dark",
-      "cupcake", // Soft Pastel Colors
-      "bumblebee", // Yellow and Black Combination
-      "emerald", // Rich Green with Nature Feel
+      "cupcake",
+      "bumblebee",
+      "emerald",
       "corporate", // Professional and Sleek
       "synthwave", // Retro 80s Neon Vibe
       "retro", // Vintage Feel with Warm Tones

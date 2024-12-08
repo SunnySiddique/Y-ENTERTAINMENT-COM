@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, MapPin, Phone, Send } from "lucide-react";
+import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import useBorder from "../../hooks/useBorder";
+import AnimatedEarth from "./AnimatedEarth";
 import IconContainer from "./IconContainer";
 
 const contactData = [
@@ -58,24 +59,6 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.4 }}
               viewport={{ once: true }}
-              drag
-              dragConstraints={{
-                left: -150,
-                right: 150,
-                top: 0,
-                bottom: 200,
-              }}
-              dragElastic={0.1}
-              whileDrag={{
-                scale: 1.1,
-                rotateX: -10,
-                rotateY: 10,
-                zIndex: 10,
-              }}
-              onDragEnd={(event, info) => {
-                setDragPosition({ x: 0, y: 0 });
-              }}
-              style={{ cursor: "grab" }}
               className={`${borderClass} p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300`}
             >
               <IconContainer key={index} icon={item.icon} />
@@ -115,7 +98,7 @@ const ContactSection = () => {
                     type="text"
                     name="lastName"
                     placeholder="Last Name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secon"
+                    className="w-full px-3 py-2 rounded-md focus:outline-none ring-2 ring-second"
                     required
                   />
                 </div>
@@ -125,7 +108,7 @@ const ContactSection = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secon"
+                  className="w-full px-3 py-2 rounded-md focus:outline-none ring-2 ring-second"
                   required
                 />
               </div>
@@ -133,7 +116,7 @@ const ContactSection = () => {
                 <textarea
                   name="message"
                   placeholder="Your message"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secon min-h-[150px]"
+                  className="w-full px-3 py-2 rounded-md focus:outline-none ring-2 ring-second"
                   required
                 ></textarea>
               </div>
@@ -147,7 +130,7 @@ const ContactSection = () => {
             </form>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -188,7 +171,8 @@ const ContactSection = () => {
                 />
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
+          <AnimatedEarth />
         </div>
       </div>
     </>

@@ -88,7 +88,7 @@ const Navbar = () => {
                     key={item.label}
                     to={item.href}
                     className={`relative pb-1 text-sm font-semibold text-primary-foreground hover:text-primary transition-colors duration-300 group ${
-                      currentPath === item.href ? "text-primary-foreground" : ""
+                      currentPath === item.href ? "text-primary" : ""
                     }`}
                   >
                     {item.label}

@@ -42,7 +42,7 @@ const CompanyOverviewSection = () => {
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg text-justify md:text-balance leading-relaxed max-w-3xl mx-auto "
+            className="text-lg  leading-relaxed max-w-3xl mx-auto "
           >
             Operationally, we are an entrepreneurial R&D deep tech venture,
             evolving as a lean, fully remote, international, and ethical

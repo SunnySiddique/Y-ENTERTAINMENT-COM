@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -37,13 +38,13 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <a
-            href="/contact"
-            className="bg-primary-content text-primary-foreground py-2 px-6 sm:py-3 sm:px-8 rounded-full font-semibold text-sm sm:text-lg transition duration-300 inline-flex items-center"
+          <Link
+            to="/contact"
+            className="bg-primary text-primary-foreground py-2 px-6 sm:py-3 sm:px-8 rounded-full font-semibold text-sm sm:text-lg transition duration-300 inline-flex items-center hover:bg-primary/80 hover:text-white"
           >
             Get Started
             <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-          </a>
+          </Link>
         </motion.div>
       </div>
       <motion.div
